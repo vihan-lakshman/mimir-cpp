@@ -44,7 +44,7 @@ If the single-threaded or multi-threaded benchmarks fail (because of RAM shortag
 version, which is memory friendly. This option simplification was not needed for Mímir's final parameter sets.
 
 To run all benchmarks for a parameter file at once do this. The results will be written to a file saved in a created
-folder mimirXXX/ in your working directory (/scripts).
+folder Mimir-XXX/ in your working directory (/scripts).
 
 ```bash
 cd scripts
