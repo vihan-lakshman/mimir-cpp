@@ -40,8 +40,8 @@ namespace {
 constexpr int kSetupWarmupRuns = 2;
 constexpr int kSetupMeasuredRuns = 10;
 
-constexpr int kQueryWarmupRuns = 1;
-constexpr int kQueryMeasuredRuns = 1;
+constexpr int kQueryWarmupRuns = 2;
+constexpr int kQueryMeasuredRuns = 10;
 
 const char* kOutputFilePath = "benchmark_latency_results.txt";
 

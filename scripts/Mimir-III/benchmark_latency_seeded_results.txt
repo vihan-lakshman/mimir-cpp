@@ -1,0 +1,54 @@
+=== Parameters (source: ../parameter_files/Mimir-III.json) ===
+n                        = 4096
+q                        = 245062354263269377
+sigma                    = 3.2
+plaintext_modulus        = 98305
+decomposition_base_ksk   = 5
+decomposition_base_prime = 3
+database_size            = 3213835
+embedding_length         = 192
+embedding_precision      = 5
+num_clusters             = 1
+cluster_size             = 3213835
+splits_per_cluster       = 785
+num_servers              = 1
+clusters_per_server      = 1
+desired_cluster_index    = 0
+num_component_rings      = 1
+
+=== Communication cost (bit-packed streams) ===
+bits per coefficient     = 58 (ceil(log2 q)), seeds = 128 bits
+digits (ksk / prime)     = 25 / 37, automorphism levels = 12
+streams per query        = 1 up + 1 down (one per component ring)
+item                            theoretical(B)   theor.(MiB)       actual(B)   actual(MiB)     overhead
+one-time eval keys                  10007568.0        9.5440        10007568        9.5440      0.000 %
+upload per query                        1676.2        0.0016            1677        0.0016      0.045 %
+download per query                  46622720.0       44.4629        46622720       44.4629      0.000 %
+total per query (up + down)         46624396.2       44.4645        46624397       44.4645      0.000 %
+actual upload streams    : ring 0 = 1677 B
+actual download streams  : ring 0 = 46622720 B
+
+=== Client setup / registration latency (seeded) ===
+stage                                     n     mean(ms)   median(ms)   stddev(ms)      min(ms)      max(ms)
+client_setup                             50        0.566        0.534        0.207        0.451        1.555
+client eval key generation (seeded)      50       88.332       87.488        1.812       86.717       95.073
+client eval key stream packing           50        9.945        9.595        1.565        9.557       19.806
+eval key unpacking                       50       35.350       34.144        2.281       33.804       41.604
+-> eval key stream unpacking             50       15.516       15.381        0.316       15.307       17.100
+
+=== Per-query latency (seeded, full database in memory) ===
+stage                                  n     mean(ms)   median(ms)   stddev(ms)      min(ms)      max(ms)
+client_query_gen (seeded)             50       86.385       85.291        2.305       84.029       95.682
+client query stream packing           50        0.003        0.003        0.000        0.002        0.004
+server_processing                     50    10484.228    10481.835       40.283    10398.718    10608.345
+-> query unpacking                    50        4.923        4.891        0.095        4.812        5.276
+  -> query stream unpacking           50        0.004        0.004        0.000        0.003        0.005
+-> RLWE ciphertext switching          50     3639.936     3636.633       15.639     3612.286     3688.918
+-> RGSW ciphertext switching          50      778.632      776.527        7.650      763.293      802.127
+-> scoring calculations               50     6022.018     6018.911       37.459     5934.281     6140.948
+  -> score computation                50     2758.147     2758.226       22.463     2714.693     2819.794
+  -> RGSW masking                     50     3231.265     3228.646       18.484     3188.119     3288.704
+  -> cross-cluster summation          50        9.366        9.365        0.047        9.254        9.474
+-> response stream packing            50       38.711       38.613        0.653       37.612       41.093
+client response stream unpacking      50       69.157       68.924        1.119       67.114       71.986
+client_decrypt                        50       43.633       43.417        0.712       42.740       45.801

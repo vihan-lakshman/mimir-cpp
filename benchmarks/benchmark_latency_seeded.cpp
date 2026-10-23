@@ -50,8 +50,8 @@ namespace {
 constexpr int kSetupWarmupRuns = 2;
 constexpr int kSetupMeasuredRuns = 50;
 
-constexpr int kQueryWarmupRuns = 1;
-constexpr int kQueryMeasuredRuns = 3;
+constexpr int kQueryWarmupRuns = 2;
+constexpr int kQueryMeasuredRuns = 50;
 
 std::filesystem::path compute_output_path(const std::string& params_arg) {
     const std::string base_name = "benchmark_latency_seeded_results.txt";

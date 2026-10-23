@@ -48,7 +48,7 @@ folder mimirXXX/ in your working directory (/scripts).
 
 ```bash
 cd scripts
-./run_benchmarks.sh --paramfile "../parameter_files/mimirI.json" --threads 32 --numservers 10
+./run_benchmarks.sh --paramfile "../parameter_files/Mimir-I.json" --threads 32 --numservers 10
 ```
 
 Else you can call the benchmarks seperately:

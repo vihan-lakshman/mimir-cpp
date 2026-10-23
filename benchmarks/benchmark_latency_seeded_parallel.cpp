@@ -63,7 +63,7 @@ constexpr int kSetupWarmupRuns = 2;
 constexpr int kSetupMeasuredRuns = 100;
 
 constexpr int kQueryWarmupRuns = 2;
-constexpr int kQueryMeasuredRuns = 10;
+constexpr int kQueryMeasuredRuns = 100;
 
 std::filesystem::path compute_output_path(const std::string& params_arg) {
     const std::string base_name = "benchmark_latency_seeded_parallel_results.txt";
