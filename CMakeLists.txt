@@ -318,7 +318,8 @@ foreach(bench
         benchmark_latency
         benchmark_latency_pool
         benchmark_latency_seeded
-        benchmark_latency_seeded_pool)
+        benchmark_latency_seeded_pool
+        benchmark_latency_seeded_bigpool)
     add_executable(${bench} benchmarks/${bench}.cpp)
     target_link_libraries(${bench} PRIVATE mimir_core)
 endforeach()
@@ -347,3 +348,6 @@ target_link_libraries(benchmark_lwe_encrypt_count PRIVATE mimir_core)
 
 #add_executable(client apps/client.cpp)
 #target_link_libraries(client PRIVATE mimir_core)
+# --- local addition: real-data evaluation driver (server/client path on a real .mdb)
+add_executable(real_eval apps/real_eval.cpp)
+target_link_libraries(real_eval PRIVATE mimir_core OpenMP::OpenMP_CXX)

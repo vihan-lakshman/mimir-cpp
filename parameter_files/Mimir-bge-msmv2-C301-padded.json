@@ -1,0 +1,22 @@
+{
+ "B_BASE_DIGIT_KS": 5,
+ "B_BASE_DIGIT_PRIME": 3,
+ "C_NUM_CLUSTERS": 301,
+ "d_DECOMP_VEC_LEN_KS": 23,
+ "d_DECOMP_VEC_LEN_PRIME": 34,
+ "DFR": "9.1e-13",
+ "DFR_limit": "9.1e-13",
+ "EMBEDDING_PRECISION": 3,
+ "l_EMBEDDING_DIM": 256,
+ "LAMBDA": 128.80565963979944,
+ "LAMBDA_min": 128,
+ "n_LATTICE_DIMENSION": 2048,
+ "N_NUM_DOCS": 269539179,
+ "PLAINTEXT_MODULUS": 8193,
+ "pr_COMP_RING_MODULUS": 8193,
+ "q_CIPHERTEXT_MODULUS": 7480583200829441,
+ "q_log2": "2^52",
+ "r_NUM_COMP_RINGS": 1,
+ "result_type": "Mimir-bge crypto params, N/C rescaled for MS MARCO v2 (local, not from authors param search); padded: unbalanced k-means clusters padded to max size 895479",
+ "sigma_STANDARD_DEV": 3.2
+}
